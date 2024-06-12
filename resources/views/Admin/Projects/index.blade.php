@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-  <table class="table">
+<div class="container-md">
+  <table class="table ">
     <thead>
       <tr>
         <th scope="col">#</th>

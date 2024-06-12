@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Tecnology;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TecnologyController extends Controller
 {
@@ -36,8 +37,25 @@ class TecnologyController extends Controller
     {
         //
         $data= $request->validated();
+        $slug = Str::slug($data['type']); 
+        $slug_demo = $slug;
+
+        $n=0;
+
+        do{
+            $find= Tecnology::where('slug', $slug)->first();
+
+            if($find !== null){
+                $n++;
+                $slug_demo = $slug . '-' . $n;
+            }
+        }while($find !== null);
+
+        $data['slug']=$slug;
 
         $new_tecnologies= Tecnology::create($data);
+
+        return to_route('admin.tecnologies.index', compact('new_tecnologies'));
 
     }
 

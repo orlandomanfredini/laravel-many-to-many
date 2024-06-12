@@ -14,7 +14,7 @@
                         {{$tecnology->tecnology}}
                     </div>
                     <div>
-                        <form action="{{route('admin.tecnologies.destroy', $tecnology)}}" method="POST">
+                        <form action="" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger">ELIMINA</button>

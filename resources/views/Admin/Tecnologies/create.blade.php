@@ -3,11 +3,11 @@
 @section('content')
 <div class="container mt-5">
     <h2 class="text-center">Aggiungi Tecnologia al Sistema</h2>
-    <form action="{{route('admin.tecnologies.store', $tecnologies)}}" method="POST">
+    <form action="{{route('admin.tecnologies.store')}}" method="POST">
         @csrf
         <div class="mb-3">
-            <label for="type" class="form-label">Add Tecnology:</label>
-            <input type="text" min="0" max="999" step="1" name="type" class="form-control" id="type"
+            <label for="tecnologies" class="form-label">Add Tecnology:</label>
+            <input type="text" min="0" max="999" step="1" name="tecnologies" class="form-control" id="tecnologies"
                 placeholder="inserisci tecnologia...">
         </div>
         <div class="mt-5">
